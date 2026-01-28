@@ -15,8 +15,8 @@ users_col = db["admin_users"]
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+        username = request.form.get("username", "").strip()
+        password = request.form.get("password", "").strip()
 
         user = users_col.find_one({
             "username": username,
@@ -24,12 +24,13 @@ def login():
         })
 
         if user:
-            session["user"] = username
+            session["user"] = user["username"]
             return redirect("/dashboard")
         else:
-            return render_template("login.html", error="Invalid Credentials")
+            return render_template("login.html", error="Invalid Username or Password")
 
     return render_template("login.html")
+
 
 # ---------------- LOGOUT ----------------
 @app.route("/logout")
