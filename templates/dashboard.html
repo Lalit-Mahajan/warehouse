@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electro-Logic WMS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+
+    {% include "navbar.html" %}
+
+
+    <!-- MAIN -->
+    <div class="container-fluid dashboard">
+        <!-- TOP -->
+        <div class="row g-3 top-section">
+            <div class="col-lg-6">
+                <div class="card glass h-100">
+                    <h6><i class="bi bi-graph-up me-2"></i>Real-Time Inventory Overview</h6>
+                    <div class="chart-wrapper">
+                        <canvas id="inventoryChart"></canvas>
+                    </div>
+
+
+                    <div class="stats-row">
+                        <div>Total SKUs: <b id="totalSkus"></b></div>
+                        <div>Low Stock: <b id="lowStock"></b></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card glass h-100">
+                    <h6><i class="bi bi-truck me-2"></i>Outbound Shipments Today</h6>
+                    <ul class="list-group list-group-flush shipment-list" id="shipmentList"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEATMAP -->
+        <div class="card glass heatmap">
+            <h6><i class="bi bi-map me-2"></i>Warehouse Heatmap</h6>
+
+            <div class="zone-wrapper">
+                <div class="zone zone-green">PICKING ZONE A</div>
+                <div class="zone zone-blue">STORAGE ZONE B</div>
+                <div class="zone zone-orange">QUALITY CONTROL</div>
+            </div>
+
+            <small class="opacity-75">Occupancy: 75%</small>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="row g-3 bottom-section">
+            <div class="col-lg-6">
+                <div class="card glass h-100">
+                    <h6><i class="bi bi-exclamation-circle me-2"></i>Low Stock Alerts</h6>
+                    <p>Microcontroller X</p>
+                    <p>OLED Display (45 Units)</p>
+                    <p>Lithium-Ion Battery Pack</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card glass h-100">
+                    <h6><i class="bi bi-inbox me-2"></i>Receiving Queue</h6>
+                    <p>PO# 20230105-001</p>
+                    <p>Supplier: Tech Components Inc.</p>
+                    <p>Status: In Progress</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+    <script src="/static/js/search.js"></script>
+
+</body>
+
+</html>

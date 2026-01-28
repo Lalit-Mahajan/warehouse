@@ -1,0 +1,236 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #2b2f36, #0e1116);
+    min-height: 100vh;
+    overflow-y: auto;
+    /* ✅ allow soft scroll */
+    overflow-x: hidden;
+    color: #eaeaea;
+}
+
+/* MAIN DASHBOARD */
+.dashboard {
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* thoda breathing space */
+    padding-bottom: 16px;
+}
+
+/* MENU */
+.menu-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* small screens safe */
+}
+
+.btn-menu {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ccc;
+    border-radius: 8px;
+    border: none;
+    padding: 6px 16px;
+    transition: all 0.25s ease;
+}
+
+.btn-menu:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.btn-menu.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* GLASS CARD */
+.glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* TOP SECTION */
+.top-section {
+    align-items: stretch;
+}
+
+/* CHART */
+#inventoryChart {
+    height: 260px;
+    /* ✅ controlled height */
+    max-width: 100%;
+}
+
+/* STATS */
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* SHIPMENTS */
+.shipment-list li {
+    background: transparent;
+    color: #f2f2f2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 4px;
+}
+
+/* HEATMAP */
+.heatmap {
+    margin-top: 8px;
+}
+
+.zone-wrapper {
+    display: flex;
+    gap: 14px;
+    margin: 12px 0;
+}
+
+.zone {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 10px;
+    letter-spacing: 0.4px;
+}
+
+/* HEATMAP COLORS */
+.zone-green {
+    background: #b9f6ca;
+    color: #000;
+}
+
+.zone-blue {
+    background: #b3e5fc;
+    color: #000;
+}
+
+.zone-orange {
+    background: #ffcc80;
+    color: #000;
+}
+
+/* SEARCH */
+.search-box {
+    width: 150px;
+}
+
+.chart-wrapper {
+    height: 240px;
+    width: 100%;
+    position: relative;
+}
+
+#shipmentTrend,
+#keyMetrics {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#inventoryChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ===== FORCE TEXT VISIBILITY INSIDE CARDS ===== */
+
+.glass h6 {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
+.glass p,
+.glass span,
+.glass small,
+.stats-row,
+.stats-row b {
+    color: #dcdcdc;
+}
+
+/* Shipment text fix */
+.shipment-list li span {
+    color: #f0f0f0;
+}
+
+/* Prevent blue text selection */
+::selection {
+    background: rgba(0, 229, 255, 0.25);
+    color: #ffffff;
+}
+
+/* Low contrast text fix (bottom cards) */
+.bottom-section p {
+    opacity: 0.9;
+}
+
+/* Heatmap title visibility */
+.heatmap h6 {
+    color: #ffffff;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .zone-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* =====================================================
+   SHIPPING REPORTS – GRAPH + FORM FINAL FIX
+   ===================================================== */
+
+/* Chart stability (NO collapse) */
+.chart-wrapper {
+    position: relative;
+    height: 280px;
+    width: 100%;
+}
+
+#shipmentTrend,
+#keyMetrics {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Custom Report Builder text visibility */
+.glass label,
+.glass .form-label,
+.glass .form-check-label {
+    color: #eaeaea;
+    font-size: 13px;
+}
+
+.glass input,
+.glass select {
+    background-color: #1c1f24;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass input::placeholder {
+    color: #aaa;
+}
+
+.form-check-input {
+    background-color: #1c1f24;
+    border: 1px solid #666;
+}
+
+/* Section titles consistency */
+.glass h6 {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+}

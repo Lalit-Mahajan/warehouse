@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory | Orders | Receiving</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="container-fluid dashboard">
+
+        <div class="row g-3">
+
+            <!-- LEFT : ORDER MANAGEMENT -->
+            <div class="col-lg-4">
+                <div class="card glass h-100">
+                    <h6>ORDER MANAGEMENT</h6>
+                    <table class="table table-dark table-sm mt-2">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Sub Category</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in inventory %}
+                            <tr>
+                                <td>{{item["ID"]}}</td>
+                                <td>{{item["Product Name"]}}</td>
+                                <td>{{item["Sub-Category"]}}</td>
+                                <td>{{item["Quantity"]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- CENTER : RECEIVING -->
+            <div class="col-lg-4">
+                <div class="card glass mb-3">
+                    <h6>RECEIVING OPERATIONS</h6>
+                    <table class="table table-dark table-sm mt-2">
+                        <thead>
+                            <tr>
+                                <th>Supplier</th>
+                                <th>SKU</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acornis Inc</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>Tech UniD</td>
+                                <td>22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card glass">
+                    <h6>EXPECTED DATE</h6>
+                    <table class="table table-dark table-sm mt-2">
+                        <tbody>
+                            <tr>
+                                <td>PO #</td>
+                                <td>87</td>
+                            </tr>
+                            <tr>
+                                <td>In Progress</td>
+                                <td>89</td>
+                            </tr>
+                            <tr>
+                                <td>Completed</td>
+                                <td>74</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RIGHT : SUMMARY + SHIPPING HUB -->
+            <div class="col-lg-4">
+                <div class="card glass mb-3">
+                    <button class="btn btn-secondary btn-sm mb-2">+ New Receiving</button>
+                    <p>Total Items: <b>15,550</b></p>
+                    <p>2023-10-26: Cocke Inst (PO)</p>
+                </div>
+
+                <div class="card glass">
+                    <h6>SHIPPING HUB</h6>
+                    <p>Tracking ID</p>
+                    <p>Carrier</p>
+                    <p>Current Location</p>
+                    <p>Estimated Delivery</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/static/js/search.js"></script>
+
+</body>
+
+</html>
