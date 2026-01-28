@@ -9,7 +9,7 @@ app.secret_key = "wms_secret_key"
 client = MongoClient(config.MONGO_URI)
 db = client[config.DB_NAME]
 inventory_col = db["inventory"]
-users_col = db["admin_users"]
+users_col = db["users"]
 
 # ---------------- LOGIN ----------------
 @app.route("/", methods=["GET", "POST"])
